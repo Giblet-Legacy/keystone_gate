@@ -1,0 +1,35 @@
+# Secrets and environment — never commit these.
+#
+# A submodule does NOT inherit its parent repository's .gitignore. When this
+# directory was tracked as plain files inside the-full-stack, that parent
+# ignore file protected build_loop/.env; the moment this became its own
+# repository, that protection silently disappeared and the file — which
+# holds CONTABO_VPS_HOST / USER / PASSWORD — was one `git add .` away from
+# being published to a public repository.
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+!*_public.pem
+*keypair*.json
+secrets/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+
+# Build output
+build/
+dist/
+*.log
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
