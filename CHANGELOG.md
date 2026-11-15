@@ -4,6 +4,22 @@
 
 ---
 
+## **2026-11-15 — v0.6.4 — Signed bytes stored as signed**
+
+## The Good (Confidence: 9)
+
+- **`build_loop/docs/step-spec.md` is now stored with the exact bytes James signed.** This repo checks text out with CRLF on Windows (`core.autocrlf`) but stores LF, so the detached `.sig` and step-spec-v2's pinned sha256 (`e83cf37c…`, both made over the CRLF working copy) would have failed on every other checkout: GitHub, the S24. A new `.gitattributes` marks that document, `*.sig` and `*.sc.json` as `-text`, and the document is re-stored CRLF, byte for byte as signed. No new signature was needed. The ledger (#04, #05) verifies from the stored copy.
+
+## The Bad (Risk: 1)
+
+- **One document is stored CRLF in an otherwise LF repo**, the same trade the-full-stack made for its four CRLF signed documents: changing its line endings now would break its signature and step-spec-v2's hash.
+
+## The Ugly (Severity: 2)
+
+- **v0.6.3 was pushed before this was checked.** Caught one commit later by comparing the signed file's hash with the stored blob; the lesson for every repo with `autocrlf`: sign what git stores, or store what was signed.
+
+---
+
 ## **2026-11-15 — v0.6.3 — Build Loop step-spec-v2; governance-v7**
 
 ## The Good (Confidence: 9)

@@ -1,0 +1,6 @@
+# Signed artefacts are stored byte for byte as signed: git must never
+# convert their line endings (the signature and the capsule hash cover
+# the exact bytes). See CHANGELOG v0.6.3.
+build_loop/docs/step-spec.md -text
+*.sig -text
+*.sc.json -text
