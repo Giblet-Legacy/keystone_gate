@@ -29,7 +29,11 @@ SCP_ID = "keystone-gate/mediator/primitive-digest-v1"
 # this digest was ever first signed — "-v1" was never actually current
 # for this capsule (the CCE copy of this same constant had the identical
 # bug, from the same unverified-latest-version assumption).
-GOVERNANCE_INHERITS = "forge-stack/governance-v6"
+# 2026-11-15: governance-v7 is in force (number_encoding,
+# hal_score_freshness). This digest carries only strings and integer
+# counts, so it already follows the number rule; the signed v1 digest
+# keeps its v6 stamp.
+GOVERNANCE_INHERITS = "forge-stack/governance-v7"
 
 
 @dataclass(frozen=True)

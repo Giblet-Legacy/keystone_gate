@@ -4,6 +4,24 @@
 
 ---
 
+## **2026-11-15 — v0.6.3 — Build Loop step-spec-v2; governance-v7**
+
+## The Good (Confidence: 9)
+
+- **`build_loop/sc/step-spec-v2.sc.json` replaces a capsule that could never be signed.** v1 used underscores in its `scp_id` (`forge-stack/keystone_gate/build_loop/step-spec-v1`), which the ratified pattern forbids, so it failed the-full-stack's schema gate on every `sign.py --verify`; its `document` (`docs/step-spec.md`) did not resolve from `sc/`, so it read as missing; and its hash was still `COMPUTE-ON-FREEZE`. v2 is `keystone-gate/build-loop/step-spec-v2`, pins `../docs/step-spec.md` by its real sha256, inherits `forge-stack/governance-v7`, and declares `supersedes` v1. James signs it, and the spec document's detached `.sig`.
+- **v1 is withdrawn, not deleted.** Moved byte for byte to `build_loop/sc/withdrawn/step-spec-v1.sc.json.withdrawn` with a README saying why, so the capsule tools no longer pick it up and its history stays.
+- **The digest inherits governance-v7.** `mediator/digest.py`'s `GOVERNANCE_INHERITS` follows the governance in force; this digest carries only strings and integer counts, so it already meets v7's number rule. The signed v1 digest keeps its v6 stamp. 61 tests pass.
+
+## The Bad (Risk: 1)
+
+- **The docstring and regression test that name `step-spec-v1`'s underscored id are left as they are.** They record why the digest uses the hyphenated form; that reason still stands.
+
+## The Ugly (Severity: 1)
+
+- **The capsule sat unsigned and failing for eleven weeks** (2026-08-28 to 2026-11-15) because nothing outside `sign.py --verify` ever named it, and that check already failed for other reasons. the-full-stack's `freeze_v3.py --check` (hardening 6.4) now names a live capsule left in this state.
+
+---
+
 ## **2026-09-08 — v0.6.2 — Correction: Stale Governance Version**
 
 ## The Good (Confidence: 9)

@@ -1,0 +1,26 @@
+{
+  "scp_id": "keystone-gate/build-loop/step-spec-v2",
+  "scp_version": "1.2.0",
+  "created": "2026-11-15T18:00:23Z",
+  "inherits": "forge-stack/governance-v7",
+  "declaration": {
+    "intent": "Specify the Build Loop step-spec: the schema for a single build step (action, target, acceptance, on_fail) and the README authoring format a step-spec is hand-written in. Phase 0 of Build Loop — no interpreter exists yet; this capsule pins the spec the interpreter will be built against. v2 replaces the unsigned v1, which never passed the schema gate (underscores in its scp_id), named its document by a path that did not resolve, and was never frozen.",
+    "parameters": {
+      "document": "../docs/step-spec.md",
+      "document_sha256": "e83cf37c3ac74375c4e536f18b730a2c76c3f3b6bd9c330addb72e8b25c7f35e",
+      "schema": "../docs/step-spec.schema.json",
+      "examples": [
+        "../examples/01-hello-npm/README.md",
+        "../examples/02-python-hello-test/README.md",
+        "../examples/03-edge-cases/README.md"
+      ],
+      "supersedes": "forge-stack/keystone_gate/build_loop/step-spec-v1"
+    }
+  },
+  "licence": "MSL-1.0",
+  "signature": {
+    "key_id": "did:key:z6MktudRY5LBZJeE13BiF4BeisAwWs7gvg6srh2GwLAMKDwJ",
+    "algorithm": "Ed25519",
+    "value": "Fu4lmj+ljbU9bY36de71Sw/+1p0qmAts0VFOkmo43D4jxldoZTXrvaAulGNwQY7NDALejmmPzgAoHa+dyE7HAw=="
+  }
+}

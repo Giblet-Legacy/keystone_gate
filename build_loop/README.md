@@ -21,7 +21,11 @@ decisions at runtime.
   future cache, etc).
 - [`docs/step-spec.schema.json`](./docs/step-spec.schema.json) — the
   formal schema for a single step object.
-- [`sc/step-spec-v1.sc.json`](./sc/step-spec-v1.sc.json) — the sc capsule
+- [`sc/step-spec-v2.sc.json`](./sc/step-spec-v2.sc.json) — the sc capsule
+  pinning the spec doc (`keystone-gate/build-loop/step-spec-v2`, inheriting
+  `forge-stack/governance-v7`), signed by James. It supersedes v1, now in
+  [`sc/withdrawn/`](./sc/withdrawn/) (2026-11-15). The v1 note below is history:
+- `sc/step-spec-v1.sc.json` (withdrawn) — the sc capsule
   pinning the spec doc, inheriting `forge-stack/governance-v6`. Unsigned;
   run `freeze.py` then `sign.py` when this is ready to be frozen for
   real.
