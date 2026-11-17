@@ -4,6 +4,41 @@
 
 ---
 
+## **2026-11-17 — v1.0.0 — Frozen, in its own repository**
+
+## The Good (Confidence: 9)
+
+- **Keystone Gate has its own repository in the organisation.** Transferred from JamesTheGiblet/keystone_gate to **Giblet-Legacy/keystone_gate** (James, 2026-11-17: "i think we need a repo for keystone gate"; he chose transfer), history kept, the old URL redirecting. It stays the-full-stack's submodule `consumer/keystone_gate`, so the root checks still verify step-spec-v2, and it is also cloned beside the other repositories.
+- **Frozen at 1.0.0** (James: "new version, sign freeze and commit"). A new `VERSION` file records it; versions before were kept in this changelog only. From here a change is a new layer, never an edit of a frozen file.
+
+## The Bad (Risk: 2)
+
+- **Frozen on the laptop run alone** (66/66, standalone and as the submodule); the VPS check runs the-full-stack's tests, not this suite.
+- **It still depends on the-full-stack** for `forge_core`; v0.6.5 finds it, it does not remove the dependency.
+
+## The Ugly (Severity: 1)
+
+- **No ugly items.**
+
+---
+
+## **2026-11-17 — v0.6.5 — Finds the-full-stack in either layout**
+
+## The Good (Confidence: 9)
+
+- **The suite no longer depends on how it is run.** `mediator/digest.py` imports the-full-stack's `forge_core`, but nothing said where that lives: the suite passed (61) only as the-full-stack's submodule with the-full-stack on `PYTHONPATH`, and cloned on its own `tests/test_mediator_digest.py` could not be collected. A new root `conftest.py` puts the first stack root it finds on `sys.path`: `$FORGE_STACK_ROOT`, two levels up (the submodule), or a sibling `the-full-stack` (the workspace). It appends, so this repository's own `mediator` package still wins over ccemk2's. No existing file is changed.
+- **`tests/test_stack_root.py`** (5 tests, run red first) covers each layout and the case where none is found. 66/66 standalone and as the submodule, with no `PYTHONPATH`.
+
+## The Bad (Risk: 1)
+
+- **Running the-full-stack's whole tree from its root still clashes** (`mediator` in both ccemk2 and keystone_gate); the-full-stack's own checks run `pytest tests`, as before.
+
+## The Ugly (Severity: 1)
+
+- **The import worked by accident for two months.** It held only because every run happened inside the-full-stack; the move to its own repository showed it.
+
+---
+
 ## **2026-11-15 — v0.6.4 — Signed bytes stored as signed**
 
 ## The Good (Confidence: 9)

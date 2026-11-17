@@ -1,0 +1,7 @@
+# VERSION — keystone_gate (Consumer: Keystone Gate)
+# Function: the current release version of this consumer. Advances only on freeze.
+# 0.1.0 to 0.6.4 — built 2026-09-08 to 2026-11-15; versions recorded in CHANGELOG.md only.
+# 0.6.5 — conftest.py finds the-full-stack (submodule, sibling or $FORGE_STACK_ROOT); 66/66 in both layouts.
+# 1.0.0 — frozen 2026-11-17 (James: "new version, sign freeze and commit"), in its own repository, Giblet-Legacy/keystone_gate.
+
+1.0.0
