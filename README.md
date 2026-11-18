@@ -2,7 +2,7 @@
 
 ## *A governed semantic‑capsule validation, mutation, and lineage‑tracking system*
 
-> **2026-11-18 (v1.1.0):** Keystone Gate is its own repository, Giblet-Legacy/keystone_gate, and depends on nothing in the-full-stack. James: the-full-stack was for reference only and never a layer of the Legacy. The layout and "already in the stack" list below describe where it came from, not what it needs. The digest is now `mediator/digest_v2.py`; the 1.0.0 files that reached for the-full-stack are kept byte-identical in `archive/1.0.0/`.
+> **2026-11-18 (v1.1.0):** Keystone Gate is its own repository, Giblet-Legacy/keystone_gate, and depends on nothing in the-full-stack. James: the-full-stack was for reference only and never a layer of the Legacy. The layout and "already in the stack" list below describe where it came from, not what it needs. The digest is now `mediator/digest_v1_1.py`; the 1.0.0 files that reached for the-full-stack are kept byte-identical in `archive/1.0.0/`.
 
 ---
 

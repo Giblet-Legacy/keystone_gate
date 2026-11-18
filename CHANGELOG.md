@@ -4,6 +4,23 @@
 
 ---
 
+## **2026-11-18 — v1.1.0 — Frozen; files named for their version**
+
+## The Good (Confidence: 9)
+
+- **Frozen at 1.1.0** (James: "freeze"). 65/65 on the laptop and on the VPS check.
+- **Named for the version they ship** (James: "we need consistency"; the rule is in roadmap NAMING.md). Before the freeze, `mediator/digest_v2.py` became `mediator/digest_v1_1.py`, and `tests/test_mediator_digest_v2.py` became `tests/test_mediator_digest_v1_1.py`. The capsule id `primitive-digest-v2` is SCP's own identity counter and is unchanged. The entry below uses the old names, as written.
+
+## The Bad (Risk: 1)
+
+- **No v2 digest has been exported or signed yet.**
+
+## The Ugly (Severity: 1)
+
+- **No ugly items.**
+
+---
+
 ## **2026-11-18 — v1.1.0 — Stands on its own: no the-full-stack**
 
 ## The Good (Confidence: 9)

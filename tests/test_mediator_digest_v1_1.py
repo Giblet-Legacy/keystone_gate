@@ -1,8 +1,8 @@
 """
-test_mediator_digest_v2.py — Keystone Gate v1.1.0: the digest without the-full-stack.
+test_mediator_digest_v1_1.py — Keystone Gate v1.1.0: the digest without the-full-stack.
 
 Function:
-    Written before mediator/digest_v2.py and run red first. The v1 digest
+    Written before mediator/digest_v1_1.py and run red first. The v1 digest
     (archived in archive/1.0.0/) imported the-full-stack's forge_core for
     two small rules and stamped its capsule "forge-stack/governance-v7".
     James, 2026-11-18: the-full-stack was for reference only and never a
@@ -36,8 +36,8 @@ import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
 
-from mediator import digest_v2
-from mediator.digest_v2 import (
+from mediator import digest_v1_1
+from mediator.digest_v1_1 import (
     PrimitiveUsage,
     build_digest_envelope,
     compute_primitive_usage,
@@ -162,7 +162,7 @@ def test_inherits_nothing():
 
 # 11
 def test_never_overwrites_the_signed_v1_digest():
-    assert digest_v2.SCP_ID.endswith("-v2")
+    assert digest_v1_1.SCP_ID.endswith("-v2")
     with tempfile.TemporaryDirectory() as tmpdir:
         path = export_digest(_write_primitives(tmpdir, {}), Path(tmpdir) / "sc")
         assert path.name == "primitive-digest-v2.sc.json"
@@ -172,8 +172,8 @@ def test_never_overwrites_the_signed_v1_digest():
 def test_rules_match_forge_time():
     """Same two rules as P16 Time (forge-time): strict UTC seconds, and the scp_id shape."""
     when = datetime(2026, 1, 1, 12, 30, 45, 383512, tzinfo=timezone.utc)
-    assert digest_v2.format_iso_utc(when) == "2026-01-01T12:30:45Z"
+    assert digest_v1_1.format_iso_utc(when) == "2026-01-01T12:30:45Z"
     for good in ["a-v1", "keystone-gate/mediator/primitive-digest-v2"]:
-        assert digest_v2.is_ratified_scp_id(good)
+        assert digest_v1_1.is_ratified_scp_id(good)
     for bad in ["keystone_gate/x-v1", "a-v", "A-v1", "a-v1\n", "/a-v1"]:
-        assert not digest_v2.is_ratified_scp_id(bad), bad
+        assert not digest_v1_1.is_ratified_scp_id(bad), bad

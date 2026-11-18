@@ -1,5 +1,5 @@
 """
-digest_v2.py — Keystone Gate v1.1.0: the primitive-usage digest, standing on its own.
+digest_v1_1.py — Keystone Gate v1.1.0: the primitive-usage digest, standing on its own.
 
 Function:
     Same behaviour as the v1 digest (archive/1.0.0/mediator/digest.py):
