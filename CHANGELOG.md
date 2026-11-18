@@ -4,6 +4,25 @@
 
 ---
 
+## **2026-11-18 — v1.1.0 — Stands on its own: no the-full-stack**
+
+## The Good (Confidence: 9)
+
+- **Nothing here depends on the-full-stack any more.** James, 2026-11-18: "the forge stack was for reference only and not meant to be a layer involved in the legacy program." The v1 digest imported the-full-stack's `forge_core` for two small rules and stamped `forge-stack/governance-v7`. The new `mediator/digest_v2.py` writes those rules on the standard library (the same as P16 Time, forge-time), sets `inherits` to `null`, and exports as `primitive-digest-v2` so it can never overwrite the signed `sc/primitive-digest-v1.sc.json`.
+- **Archived, not deleted.** The root `conftest.py` (the stack-root finder), `mediator/digest.py`, `tests/test_mediator_digest.py` and `tests/test_stack_root.py` moved byte-identical to `archive/1.0.0/`. A new `pytest.ini` keeps pytest out of `archive/`.
+- **`tests/test_mediator_digest_v2.py`** (12 tests, run red first): the eight v1 tests carried over, plus no `forge_core` anywhere live, `inherits` null, the v1 file never overwritten, and the rules matching forge-time. 65/65.
+
+## The Bad (Risk: 2)
+
+- **Not frozen.** VERSION stays 1.0.0 until James freezes 1.1.0.
+- **The signed `sc/primitive-digest-v1.sc.json` still says `forge-stack/governance-v6`.** It is signed history and stays as it is. No v2 digest has been exported or signed yet.
+
+## The Ugly (Severity: 1)
+
+- **The README's layout section still shows the-full-stack.** A dated note at the top says it is history.
+
+---
+
 ## **2026-11-17 — v1.0.0 — Frozen, in its own repository**
 
 ## The Good (Confidence: 9)
